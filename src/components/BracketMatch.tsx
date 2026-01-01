@@ -30,12 +30,14 @@ export const BracketMatch = ({
   isPredicted2
 }: BracketMatchProps) => {
   return (
-    <div className="bg-white/95 backdrop-blur-sm min-w-[220px] sm:min-w-[260px] md:min-w-[280px] rounded-2xl border border-gray-200 shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-gray-300">
+    <div className="relative min-w-[220px] sm:min-w-[260px] md:min-w-[280px] rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 group backdrop-blur-xl bg-gradient-to-br from-white/90 to-white/70 border-2 border-white/40 shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-400/60">
 
       {/* Team 1 */}
       <div
-        className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-3 sm:py-3.5 transition-all duration-200 ${isPredicted1 ? 'bg-amber-50' : ''
-          } ${onTeam1Click ? 'cursor-pointer hover:bg-gray-50' : ''}`}
+        className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-4 transition-all duration-300 ${isPredicted1
+          ? 'bg-gradient-to-r from-purple-100 via-purple-50 to-purple-100 border-l-4 border-purple-500 shadow-lg shadow-purple-500/20'
+          : 'bg-white/50 hover:bg-gradient-to-r hover:from-purple-50/50 hover:via-white/50 hover:to-purple-50/50'
+          } ${onTeam1Click ? 'cursor-pointer' : ''}`}
         onClick={onTeam1Click}
       >
         {team1 ? (
@@ -47,7 +49,7 @@ export const BracketMatch = ({
                 className="w-10 h-7 sm:w-12 sm:h-8 object-cover rounded border border-gray-200"
               />
               {isPredicted1 && (
-                <div className="absolute -inset-1 border-2 border-amber-400 rounded" />
+                <div className="absolute -inset-1 border-2 border-purple-500 rounded shadow-lg shadow-purple-500/50" />
               )}
             </div>
             <div className="flex flex-col flex-1 min-w-0">
@@ -69,7 +71,7 @@ export const BracketMatch = ({
                   onScore1Change(parseInt(e.target.value) || 0);
                 }}
                 onClick={(e) => e.stopPropagation()}
-                className="w-10 h-9 sm:w-12 sm:h-10 bg-white border-2 border-gray-200 rounded-lg text-center font-bold text-base sm:text-lg text-gray-900 focus:outline-none focus:border-amber-400 transition-all"
+                className="w-10 h-9 sm:w-12 sm:h-10 bg-white border-2 border-gray-200 rounded-lg text-center font-bold text-base sm:text-lg text-gray-900 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
               />
             ) : (
               <span className={`font-bold text-lg ${isWinner1 ? 'text-gray-900' : 'text-gray-400'
@@ -90,8 +92,10 @@ export const BracketMatch = ({
 
       {/* Team 2 */}
       <div
-        className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-3 sm:py-3.5 transition-all duration-200 ${isPredicted2 ? 'bg-amber-50' : ''
-          } ${onTeam2Click ? 'cursor-pointer hover:bg-gray-50' : ''}`}
+        className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-4 transition-all duration-300 ${isPredicted2
+          ? 'bg-gradient-to-r from-purple-100 via-purple-50 to-purple-100 border-l-4 border-purple-500 shadow-lg shadow-purple-500/20'
+          : 'bg-white/50 hover:bg-gradient-to-r hover:from-purple-50/50 hover:via-white/50 hover:to-purple-50/50'
+          } ${onTeam2Click ? 'cursor-pointer' : ''}`}
         onClick={onTeam2Click}
       >
         {team2 ? (
@@ -103,7 +107,7 @@ export const BracketMatch = ({
                 className="w-10 h-7 sm:w-12 sm:h-8 object-cover rounded border border-gray-200"
               />
               {isPredicted2 && (
-                <div className="absolute -inset-1 border-2 border-amber-400 rounded" />
+                <div className="absolute -inset-1 border-2 border-purple-500 rounded shadow-lg shadow-purple-500/50" />
               )}
             </div>
             <div className="flex flex-col flex-1 min-w-0">
@@ -125,7 +129,7 @@ export const BracketMatch = ({
                   onScore2Change(parseInt(e.target.value) || 0);
                 }}
                 onClick={(e) => e.stopPropagation()}
-                className="w-10 h-9 sm:w-12 sm:h-10 bg-white border-2 border-gray-200 rounded-lg text-center font-bold text-base sm:text-lg text-gray-900 focus:outline-none focus:border-amber-400 transition-all"
+                className="w-10 h-9 sm:w-12 sm:h-10 bg-white border-2 border-gray-200 rounded-lg text-center font-bold text-base sm:text-lg text-gray-900 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
               />
             ) : (
               <span className={`font-bold text-lg ${isWinner2 ? 'text-gray-900' : 'text-gray-400'

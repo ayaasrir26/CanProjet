@@ -144,8 +144,10 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
   };
 
   return (
-    <div ref={containerRef} className="w-full min-h-[800px] overflow-hidden flex justify-center py-12 relative bg-white">
-      {/* Clean minimal background */}
+    <div ref={containerRef} className="w-full min-h-[800px] overflow-hidden flex justify-center py-12 relative bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20">
+      {/* Subtle animated background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-100/20 via-transparent to-blue-100/20 animate-pulse" style={{ animationDuration: '8s' }} />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:3rem_3rem]" />
 
       <div
         ref={contentRef}
@@ -158,12 +160,14 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
         className="pb-10 origin-top relative z-10"
       >
         <div className="px-4">
-          {/* Clean Header Section */}
-          <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-gray-900 mb-2 uppercase tracking-tight">
-              Tableau Final
+          {/* Modern Header Section */}
+          <div className="text-center mb-16">
+            <h2 className="text-6xl font-black mb-3 uppercase tracking-tight">
+              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
+                Tableau Final
+              </span>
             </h2>
-            <p className="text-sm text-gray-500 uppercase tracking-widest">
+            <p className="text-sm text-gray-600 uppercase tracking-[0.3em] font-semibold">
               Phase éliminatoire de la CAN 2025
             </p>
           </div>
@@ -185,16 +189,22 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
             {/* Left Side Connectors */}
             <div className="relative w-16 h-[800px]">
               <svg className="absolute inset-0 w-full h-full overflow-visible pointer-events-none">
-                {/* Simple Connectors */}
+                {/* Modern Purple Connectors */}
                 {[0, 1].map((i) => (
                   <path
                     key={`l-conn-${i}`}
                     d={`M 0 ${116 + i * 400} L 32 ${116 + i * 400} L 32 ${216 + i * 200} L 64 ${216 + i * 200}`}
                     fill="none"
-                    stroke="#d1d5db"
-                    strokeWidth="2"
+                    stroke="url(#purpleGradient)"
+                    strokeWidth="2.5"
                   />
                 ))}
+                <defs>
+                  <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#a855f7" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#ec4899" stopOpacity="0.4" />
+                  </linearGradient>
+                </defs>
               </svg>
             </div>
 
@@ -217,7 +227,7 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
 
             {/* Connectors Left to Semi */}
             <div className="flex items-center px-4">
-              <div className="w-8 h-[144px] border-r-2 border-t-2 border-b-2 border-gray-300 rounded-r-xl" />
+              <div className="w-8 h-[144px] border-r-2 border-t-2 border-b-2 border-purple-300 rounded-r-xl shadow-sm" />
             </div>
 
             {/* Left Semi Final */}
@@ -239,25 +249,30 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
               {champion && (
                 <div className="mb-8 relative z-20 animate-in fade-in zoom-in duration-700">
                   <div className="relative flex flex-col items-center">
-                    {/* Large Golden Trophy Circle */}
+                    {/* Modern Gradient Trophy Circle */}
                     <div className="relative">
-                      <div className="w-48 h-48 rounded-full bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 flex items-center justify-center shadow-2xl">
-                        <Trophy className="w-24 h-24 text-white" strokeWidth={2} />
+                      <div className="w-56 h-56 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-amber-500 flex items-center justify-center shadow-2xl shadow-purple-500/40 animate-pulse" style={{ animationDuration: '3s' }}>
+                        <div className="w-52 h-52 rounded-full bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 flex items-center justify-center">
+                          <Trophy className="w-28 h-28 text-white drop-shadow-2xl" strokeWidth={2.5} />
+                        </div>
                       </div>
-                      {/* Small label above */}
-                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                        <span className="text-xs text-gray-500 uppercase tracking-widest font-semibold">
-                          Finale
+                      {/* Subtle glow rings */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 blur-2xl -z-10 animate-pulse" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
+
+                      {/* Label above */}
+                      <div className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                        <span className="text-xs text-gray-600 uppercase tracking-[0.4em] font-bold bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-lg">
+                          Finale CAN 2025
                         </span>
                       </div>
                     </div>
 
                     {/* Champion Label */}
-                    <div className="mt-6 text-center">
-                      <p className="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-2">
-                        Champion 2025
+                    <div className="mt-8 text-center">
+                      <p className="text-sm text-purple-600 uppercase tracking-[0.3em] font-bold mb-3">
+                        Champion
                       </p>
-                      <h2 className="text-5xl font-bold text-amber-600 uppercase tracking-tight">
+                      <h2 className="text-6xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-amber-600 bg-clip-text text-transparent uppercase tracking-tight">
                         {champion.name}
                       </h2>
                     </div>
@@ -287,7 +302,7 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
 
             {/* Connectors Right from Semi */}
             <div className="flex items-center px-4">
-              <div className="w-8 h-[144px] border-l-2 border-t-2 border-b-2 border-royal-emerald/20 rounded-l-2xl" />
+              <div className="w-8 h-[144px] border-l-2 border-t-2 border-b-2 border-purple-300 rounded-l-xl shadow-sm" />
             </div>
 
             {/* Right Quarter Finals */}
@@ -311,7 +326,7 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
             <div className="flex flex-col gap-[88px] py-8">
               {[0, 1].map((i) => (
                 <div key={`conn-r1-${i}`} className="flex items-center">
-                  <div className="w-4 h-[72px] border-l-2 border-t-2 border-b-2 border-gray-300 rounded-l-lg" />
+                  <div className="w-4 h-[72px] border-l-2 border-t-2 border-b-2 border-purple-300 rounded-l-lg shadow-sm" />
                 </div>
               ))}
             </div>
