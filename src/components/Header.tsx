@@ -26,12 +26,21 @@ export function Header() {
 
         <div className="container mx-auto px-6 lg:px-10 flex items-center justify-between h-20 relative z-10">
           {/* Logo Section */}
+<<<<<<< HEAD
+          <Link to="/" className="flex items-center gap-4 group/logo">
+            <div className="relative p-1.5 bg-white/50 rounded-2xl border border-white/40 shadow-soft transition-all duration-500 group-hover/logo:scale-110 group-hover/logo:rotate-3">
+              <img
+                src="/logo.png"
+                alt="CAN 2025"
+                className="h-12 w-auto object-contain"
+=======
           <Link to="/" className="flex items-center gap-3 group/logo">
             <div className="relative transition-all duration-500 group-hover/logo:scale-110 group-hover/logo:rotate-4">
               <img
                 src="/logo-new.png"
                 alt="CAN 2025"
                 className="h-16 w-auto object-contain drop-shadow-md"
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
               />
             </div>
             <div className="hidden sm:block">

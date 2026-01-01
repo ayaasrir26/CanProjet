@@ -1,5 +1,3 @@
-// file name: Bracket.tsx (updated)
-
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Header } from "@/components/Header";
@@ -14,11 +12,36 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import html2canvas from 'html2canvas';
 
 const Bracket = () => {
   const predictionContext = useContext(PredictionContext);
   const { user } = useAuth();
   const navigate = useNavigate();
+  const componentRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = async () => {
+    if (componentRef.current) {
+      const canvas = await html2canvas(componentRef.current, {
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null
+      });
+      const data = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+
+      if (typeof link.download === 'string') {
+        link.href = data;
+        link.download = 'mes-pronostics-can-2025.png';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        window.open(data);
+      }
+    }
+  };
 
   const { data: teams, isLoading } = useQuery({
     queryKey: ["teams"],
@@ -61,13 +84,14 @@ const Bracket = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" ref={componentRef}>
       <Header />
 
       {/* Hero Section - Clean Modern Design */}
       <section className="relative py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
+
 
             {/* Title Section */}
             <div className="text-center mb-12">
@@ -77,6 +101,7 @@ const Bracket = () => {
                 <div className="w-6 h-px bg-gradient-to-l from-transparent to-primary" />
               </div>
 
+
               <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                   CAN 2025
@@ -84,6 +109,7 @@ const Bracket = () => {
                 <br />
                 <span className="text-gray-900">Tournament Bracket</span>
               </h1>
+
 
               <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 Predict the journey to glory. Every match matters. Every prediction counts.
@@ -192,6 +218,14 @@ const Bracket = () => {
                   Sign in to Predict
                 </Button>
               )}
+
+              <Button
+                onClick={handleDownload}
+                className="btn-royal h-16 px-12 text-lg shadow-royal-emerald/30 bg-blue-600 hover:bg-blue-700"
+              >
+                <Download className="w-6 h-6 mr-3" />
+                Télécharger
+              </Button>
             </div>
 
             {/* Instructions */}
@@ -234,6 +268,7 @@ const Bracket = () => {
             </div>
           </div>
 
+
           {isLoading ? (
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
@@ -250,6 +285,8 @@ const Bracket = () => {
               <CardContent className="py-20 text-center">
                 <Target className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                 <p className="text-gray-500">Failed to load teams data</p>
+                <Button
+                  variant="outline"
                 <Button
                   variant="outline"
                   className="mt-4"
@@ -287,6 +324,13 @@ const Bracket = () => {
             ) : (
               <Save className="w-6 h-6" />
             )}
+          </Button>
+          <Button
+            size="icon"
+            className="w-14 h-14 rounded-full bg-blue-600 text-white shadow-xl border-2 border-white/20 mt-4"
+            onClick={handleDownload}
+          >
+            <Download className="w-6 h-6" />
           </Button>
         </div>
       )}
