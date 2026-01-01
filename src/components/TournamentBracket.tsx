@@ -127,6 +127,23 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
 
   const champion = getWinner("final", finalTeams.team1, finalTeams.team2);
 
+  // Helper pour vérifier si tous les quarts de finale sont complétés
+  const areAllQuarterFinalsCompleted = () => {
+    return ['qf-0', 'qf-1', 'qf-2', 'qf-3'].every(matchId => {
+      return predictions[matchId]?.predictedWinner !== undefined;
+    });
+  };
+
+  // Helper pour vérifier si toutes les demi-finales sont complétées
+  const areAllSemiFinalsCompleted = () => {
+    return ['sf-0', 'sf-1'].every(matchId => {
+      return predictions[matchId]?.predictedWinner !== undefined;
+    });
+  };
+
+  const allQFCompleted = areAllQuarterFinalsCompleted();
+  const allSFCompleted = areAllSemiFinalsCompleted();
+
   const getMatchData = (id: string, round: 'roundOf16' | 'quarterFinals' | 'semiFinals' | 'final', team1: Tables<"teams"> | null, team2: Tables<"teams"> | null) => {
     const match = predictions[id];
     return {
@@ -243,10 +260,10 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
             </div>
 
             {/* Final */}
-            {/* Final Section Wrapper */}
+            {/* Final Section Wrapper - Toujours visible */}
             <div className="flex flex-col items-center gap-6 mx-4">
               {/* Champion Display - Clean Modern Style */}
-              {champion && (
+              {champion ? (
                 <div className="mb-8 relative z-20 animate-in fade-in zoom-in duration-700">
                   <div className="relative flex flex-col items-center">
                     {/* Modern Gradient Trophy Circle */}
@@ -278,9 +295,22 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
                     </div>
                   </div>
                 </div>
+              ) : (
+                <div className="mb-8 text-center">
+                  <div className="inline-flex items-center gap-3 mb-2">
+                    <Trophy className="w-8 h-8 text-purple-500 opacity-40" />
+                    <span className="text-xl text-gray-500 uppercase tracking-[0.3em] font-bold">
+                      Finale CAN 2025
+                    </span>
+                    <Trophy className="w-8 h-8 text-purple-500 opacity-40" />
+                  </div>
+                  <p className="text-lg text-gray-500 italic font-medium">
+                    Remplissez les matchs pour déterminer le champion
+                  </p>
+                </div>
               )}
 
-              {/* Enhanced Final Match Component */}
+              {/* Enhanced Final Match Component - Toujours visible */}
               <FinalMatch
                 {...getMatchData('final', 'final', finalTeams.team1, finalTeams.team2)}
                 team1={finalTeams.team1}
@@ -345,6 +375,6 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
