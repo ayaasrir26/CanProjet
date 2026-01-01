@@ -87,8 +87,13 @@
   }
 
   .zellige-pattern {
+<<<<<<< HEAD
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%23c69c6d' fill-opacity='0.05'/%3E%3Cpath d='M30 15l15 15-15 15-15-15z' fill='%23006233' fill-opacity='0.03'/%3E%3Cpath d='M30 0L45 15 30 30 15 15z' fill='%23c69c6d' fill-opacity='0.05'/%3E%3Cpath d='M30 60L45 45 30 30 15 45z' fill='%23c69c6d' fill-opacity='0.05'/%3E%3Cpath d='M0 30L15 45 30 30 15 15z' fill='%23c69c6d' fill-opacity='0.05'/%3E%3Cpath d='M60 30L45 45 30 30 45 15z' fill='%23c69c6d' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 120px;
+=======
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M50 0l50 50-50 50L0 50z' fill='%23c69c6d' fill-opacity='0.03'/%3E%3Cpath d='M50 20l30 30-30 30-30-30z' fill='%23006233' fill-opacity='0.02'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 50px;
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
   }
 
   .zellige-border {
@@ -194,10 +199,13 @@
     50% {
       transform: translateY(-10px);
     }
+<<<<<<< HEAD
 
     50% {
       transform: translateY(-10px);
     }
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
   }
 
   .mask-star {

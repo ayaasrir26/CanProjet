@@ -1,5 +1,6 @@
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
+<<<<<<< HEAD
 import { GroupStandings } from '@/components/GroupStandings';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -49,12 +50,19 @@ export default function Index() {
 
       return acc;
     }, {} as Record<string, typeof teams>);
+=======
+
+
+export default function Index() {
+
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
 
   return (
     <div className="min-h-screen bg-transparent">
       <Header />
       <HeroSection />
 
+<<<<<<< HEAD
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-10">
           <h2 className="font-display text-4xl md:text-5xl text-foreground mb-2">Tournament Groups</h2>
@@ -75,6 +83,9 @@ export default function Index() {
           </div>
         )}
       </main>
+=======
+
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
 
       <footer className="border-t border-border py-8 mt-12">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">

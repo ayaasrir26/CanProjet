@@ -8,9 +8,14 @@ import { PrizesSection } from "@/components/PrizesSection";
 import { Leaderboard } from "@/components/Leaderboard";
 
 
+<<<<<<< HEAD
 import { Loader2, Save, LogIn, Download } from "lucide-react";
 import { useContext, useRef } from "react";
 import html2canvas from "html2canvas";
+=======
+import { Loader2, Save, LogIn } from "lucide-react";
+import { useContext } from "react";
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
 import { PredictionContext } from "@/contexts/PredictionContext";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth";
@@ -21,6 +26,7 @@ const Bracket = () => {
   const predictionContext = useContext(PredictionContext);
   const { user } = useAuth();
   const navigate = useNavigate();
+<<<<<<< HEAD
   const componentRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
@@ -45,6 +51,8 @@ const Bracket = () => {
       }
     }
   };
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
 
   const { data: teams, isLoading } = useQuery({
     queryKey: ["teams"],
@@ -70,19 +78,27 @@ const Bracket = () => {
   const champion = getPredictedChampion();
 
   return (
+<<<<<<< HEAD
     <div ref={componentRef} className="min-h-screen bg-transparent relative">
+=======
+    <div className="min-h-screen bg-transparent relative">
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
       <Header />
 
 
       {/* Hero Section */}
       <section className="relative py-16 bg-gradient-hero overflow-hidden">
         {/* Moroccan Zellige Overlay */}
+<<<<<<< HEAD
         {/* Moroccan Zellige Overlay */}
         <div
           className="absolute inset-0 zellige-pattern opacity-[0.08] pointer-events-none mix-blend-overlay"
           style={{ maskImage: 'radial-gradient(circle at center, transparent 30%, black 100%)', WebkitMaskImage: 'radial-gradient(circle at center, transparent 30%, black 100%)' }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/90 pointer-events-none"></div>
+=======
+        <div className="absolute inset-0 zellige-pattern opacity-10 pointer-events-none"></div>
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -128,6 +144,7 @@ const Bracket = () => {
                   Entrer dans l'Arène
                 </Button>
               )}
+<<<<<<< HEAD
 
               <Button
                 onClick={handleDownload}
@@ -136,6 +153,8 @@ const Bracket = () => {
                 <Download className="w-6 h-6 mr-3" />
                 Télécharger
               </Button>
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
             </div>
           </div>
         </div>
@@ -172,6 +191,7 @@ const Bracket = () => {
           >
             {isSaving ? <Loader2 className="w-6 h-6 animate-spin" /> : <Save className="w-6 h-6" />}
           </Button>
+<<<<<<< HEAD
           <Button
             size="icon"
             className="w-14 h-14 rounded-full bg-blue-600 text-white shadow-xl border-2 border-white/20 mt-4"
@@ -179,6 +199,8 @@ const Bracket = () => {
           >
             <Download className="w-6 h-6" />
           </Button>
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
         </div>
       )}
       {/* Chatbot Removed */}
