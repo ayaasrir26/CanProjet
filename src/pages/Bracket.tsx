@@ -8,6 +8,7 @@ import { PrizesSection } from "@/components/PrizesSection";
 import { Leaderboard } from "@/components/Leaderboard";
 import { Loader2, Save, LogIn, Trophy, Target, Users, Calendar } from "lucide-react";
 import { useContext } from "react";
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
 import { PredictionContext } from "@/contexts/PredictionContext";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth";
@@ -18,6 +19,33 @@ const Bracket = () => {
   const predictionContext = useContext(PredictionContext);
   const { user } = useAuth();
   const navigate = useNavigate();
+<<<<<<< HEAD
+  const componentRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = async () => {
+    if (componentRef.current) {
+      const canvas = await html2canvas(componentRef.current, {
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null
+      });
+      const data = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+
+      if (typeof link.download === 'string') {
+        link.href = data;
+        link.download = 'mes-pronostics-can-2025.png';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        window.open(data);
+      }
+    }
+  };
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
 
   const { data: teams, isLoading } = useQuery({
     queryKey: ["teams"],
@@ -156,6 +184,17 @@ const Bracket = () => {
                   Sign in to Predict
                 </Button>
               )}
+<<<<<<< HEAD
+
+              <Button
+                onClick={handleDownload}
+                className="btn-royal h-16 px-12 text-lg shadow-royal-emerald/30 bg-blue-600 hover:bg-blue-700"
+              >
+                <Download className="w-6 h-6 mr-3" />
+                Télécharger
+              </Button>
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
             </div>
 
             {/* Instructions */}
@@ -252,6 +291,16 @@ const Bracket = () => {
               <Save className="w-6 h-6" />
             )}
           </Button>
+<<<<<<< HEAD
+          <Button
+            size="icon"
+            className="w-14 h-14 rounded-full bg-blue-600 text-white shadow-xl border-2 border-white/20 mt-4"
+            onClick={handleDownload}
+          >
+            <Download className="w-6 h-6" />
+          </Button>
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
         </div>
       )}
     </div>

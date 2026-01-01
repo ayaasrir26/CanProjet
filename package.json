@@ -48,6 +48,10 @@
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+<<<<<<< HEAD
+    "html2canvas": "^1.4.1",
+=======
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
     "input-otp": "^1.4.2",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
@@ -83,4 +87,8 @@
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c0f28437b658bf19ef20f2e15ca2fb3ae6d21467
