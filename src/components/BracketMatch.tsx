@@ -81,8 +81,8 @@ export const BracketMatch = ({
             )}
           </>
         ) : (
-          <div className="flex items-center justify-center flex-1 py-2">
-            <span className="text-xs text-gray-300 uppercase tracking-wider font-medium">TBD</span>
+          <div className="flex items-center justify-center flex-1 h-12 bg-gray-50/50 rounded-lg border-2 border-dashed border-gray-200">
+            <span className="text-gray-300 transform -rotate-45">/</span>
           </div>
         )}
       </div>
@@ -139,8 +139,8 @@ export const BracketMatch = ({
             )}
           </>
         ) : (
-          <div className="flex items-center justify-center flex-1 py-2">
-            <span className="text-xs text-gray-300 uppercase tracking-wider font-medium">TBD</span>
+          <div className="flex items-center justify-center flex-1 h-12 bg-gray-50/50 rounded-lg border-2 border-dashed border-gray-200">
+            <span className="text-gray-300 transform -rotate-45">/</span>
           </div>
         )}
       </div>

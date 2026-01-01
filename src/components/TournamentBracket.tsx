@@ -1,4 +1,5 @@
 import { Trophy } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { InteractiveBracketMatch } from "../pages/InteractiveBracketMatch";
 import { FinalMatch } from "./FinalMatch";
 import { Tables } from "@/integrations/supabase/types";
@@ -246,14 +247,27 @@ export const TournamentBracket = ({ teams }: TournamentBracketProps) => {
             {/* Final Section Wrapper */}
             <div className="flex flex-col items-center gap-6 mx-4">
               {/* Champion Display - Clean Modern Style */}
+              {/* Champion Display - Clean Modern Style */}
               {champion && (
-                <div className="mb-8 relative z-20 animate-in fade-in zoom-in duration-700">
-                  <div className="relative flex flex-col items-center">
+                <div
+                  className="mb-8 relative z-20 animate-in fade-in zoom-in duration-700 flex flex-col items-center"
+                >
+                  <div
+                    className="relative flex flex-col items-center p-8 rounded-3xl"
+                  >
                     {/* Modern Gradient Trophy Circle */}
                     <div className="relative">
                       <div className="w-56 h-56 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-amber-500 flex items-center justify-center shadow-2xl shadow-purple-500/40 animate-pulse" style={{ animationDuration: '3s' }}>
-                        <div className="w-52 h-52 rounded-full bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 flex items-center justify-center">
-                          <Trophy className="w-28 h-28 text-white drop-shadow-2xl" strokeWidth={2.5} />
+                        <div className="w-52 h-52 rounded-full bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 flex items-center justify-center overflow-hidden border-4 border-white/20">
+                          {champion.flag_url ? (
+                            <img
+                              src={champion.flag_url}
+                              alt={champion.name}
+                              className="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-700"
+                            />
+                          ) : (
+                            <Trophy className="w-28 h-28 text-white drop-shadow-2xl" strokeWidth={2.5} />
+                          )}
                         </div>
                       </div>
                       {/* Subtle glow rings */}
